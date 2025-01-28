@@ -1,13 +1,15 @@
-name: stagexl_particle
+name: stagexl_particle_confetti
 version: 1.1.0
-description: The particle emitter runtime for the StageXL library.
+description: Confetti Example
 homepage: http://www.stagexl.org
 
 environment:
   sdk: ^3.0.0
 
 dependencies:
-  stagexl: ^2.2.1
+  stagexl: ^2.0.0
+  stagexl_particle:
+    path: ../../../stagexl_particle
 
 dev_dependencies:
   pedantic: any

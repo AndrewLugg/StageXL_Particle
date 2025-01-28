@@ -10,7 +10,7 @@ targets:
           filter_outputs: true
       build_web_compilers|entrypoint:
         generate_for:
-          - example/confetti/example.dart
+          - web/example.dart
         dev_options:
           compiler: dartdevc
         release_options:

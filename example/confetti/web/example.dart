@@ -6,43 +6,44 @@ import 'package:stagexl_particle/stagexl_particle.dart';
 
 void main() {
   StageXL.stageOptions.renderEngine = RenderEngine.WebGL;
-  StageXL.stageOptions.backgroundColor = Color.Black;
-  Stage stage = Stage(html.querySelector('#stage') as html.CanvasElement);
+  StageXL.stageOptions.backgroundColor = Color.White;
+  var stage = Stage(html.querySelector('#stage') as html.CanvasElement);
   var renderLoop = RenderLoop();
   renderLoop.addStage(stage);
 
   //-------------------------
 
   var particleConfig = {
-    'maxParticles': 2000,
-    'duration': 0,
-    'lifeSpan': 0.7,
-    'lifespanVariance': 0.2,
-    'startSize': 16,
-    'startSizeVariance': 10,
-    'finishSize': 53,
-    'finishSizeVariance': 11,
-    'shape': 'circle',
+    'type' : 'confetti',
+    'maxParticles': 30000,
+    'duration': 0.1,
+    'lifeSpan': 10,
+    'lifespanVariance': 5,
+    'startSize': 10,
+    'startSizeVariance': 0,
+    'finishSize': 10,
+    'finishSizeVariance': 0,
+    'shape': 'square',
     'emitterType': 0,
     'location': {'x': 0, 'y': 0},
     'locationVariance': {'x': 5, 'y': 5},
-    'speed': 100,
-    'speedVariance': 33,
-    'angle': 0,
+    'speed': 50,
+    'speedVariance': 100,
+    'angle': 90,
     'angleVariance': 360,
-    'gravity': {'x': 0, 'y': 0},
+    'gravity': {'x': 0, 'y': 100},
+    'gravityVariance': {'x': 0, 'y': 50},
     'radialAcceleration': 20,
     'radialAccelerationVariance': 0,
-    'tangentialAcceleration': 10,
+    'tangentialAcceleration': 0,
     'tangentialAccelerationVariance': 0,
     'minRadius': 0,
     'maxRadius': 100,
     'maxRadiusVariance': 0,
-    'rotatePerSecond': 0,
+    'rotatePerSecond': 50,
     'rotatePerSecondVariance': 0,
     'compositeOperation': 'source-over',
-    'startColor': {'red': 1, 'green': 0.74, 'blue': 0, 'alpha': 1},
-    'finishColor': {'red': 1, 'green': 0, 'blue': 0, 'alpha': 0}
+    'confettiColors' : [0xFF26ccff,  0xFFa25afd,  0xFFff5e7e,  0xFF88ff5a,  0xFFfcff42,  0xFFffa62d,  0xFFff36ff]
   };
 
   var particleEmitter = ParticleEmitter(particleConfig);
@@ -53,7 +54,11 @@ void main() {
   //-------------------------
 
   var mouseEventListener = (MouseEvent me) {
-    if (me.buttonDown) particleEmitter.setEmitterLocation(me.localX, me.localY);
+    if (me.buttonDown)  {
+      particleEmitter.setEmitterLocation(me.localX, me.localY);
+      particleEmitter.start(0.1);
+    }
+
   };
 
   var glassPlate = GlassPlate(800, 600);

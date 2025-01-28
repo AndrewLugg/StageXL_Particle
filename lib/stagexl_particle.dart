@@ -2,6 +2,7 @@ library stagexl_particle;
 
 import 'dart:math' hide Point, Rectangle;
 import 'dart:html' show CanvasRenderingContext2D;
+import 'dart:math';
 
 import 'package:stagexl/stagexl.dart';
 
@@ -13,16 +14,13 @@ import 'package:stagexl/stagexl.dart';
 //-------------------------------------------------------------------------------------------------
 
 part 'src/particle.dart';
+part 'src/confetti.dart';
 part 'src/particle_color.dart';
 part 'src/particle_emitter.dart';
 part 'src/particle_render_program.dart';
 
 bool _ensureBool(bool value) {
-  if (value is bool) {
-    return value;
-  } else {
-    throw ArgumentError('The supplied value ($value) is not a bool.');
-  }
+  return value;
 }
 
 int _ensureInt(int? value) {

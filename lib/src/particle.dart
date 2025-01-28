@@ -50,8 +50,8 @@ class _Particle {
     _startX = pe._locationX;
     _startY = pe._locationY;
 
-    num angle = pe._angle + pe._angleVariance * pe._randomVariance;
-    num velocity = pe._speed + pe._speedVariance * pe._randomVariance;
+    var angle = pe._angle + pe._angleVariance * pe._randomVariance;
+    var velocity = pe._speed + pe._speedVariance * pe._randomVariance;
     _velocityX = (velocity * cos(angle));
     _velocityY = (velocity * sin(angle));
 
@@ -65,8 +65,8 @@ class _Particle {
     _tangentialAcceleration = pe._tangentialAcceleration +
         pe._tangentialAccelerationVariance * pe._randomVariance;
 
-    num size1 = pe._startSize + pe._startSizeVariance * pe._randomVariance;
-    num size2 = pe._endSize + pe._endSizeVariance * pe._randomVariance;
+    var size1 = pe._startSize + pe._startSizeVariance * pe._randomVariance;
+    var size2 = pe._endSize + pe._endSizeVariance * pe._randomVariance;
     if (size1 < 0.1) size1 = 0.1;
     if (size2 < 0.1) size2 = 0.1;
     _size = size1;
@@ -102,8 +102,8 @@ class _Particle {
         _currentTime = _totalTime;
       }
     } else {
-      num distanceX = _x - _startX;
-      num distanceY = _y - _startY;
+      var distanceX = _x - _startX;
+      var distanceY = _y - _startY;
       num distanceScalar = sqrt(distanceX * distanceX + distanceY * distanceY);
       if (distanceScalar < 0.01) distanceScalar = 0.01;
       distanceX = distanceX / distanceScalar;
@@ -141,7 +141,7 @@ class _Particle {
     if (index < 1) index = 1;
     if (index > 31) index = 31;
 
-    RenderTextureQuad renderTextureQuad =
+    var renderTextureQuad =
         _particleEmitter._renderTextureQuads[index];
     var source = renderTextureQuad.renderTexture.canvas;
     var sourceRectangle = renderTextureQuad.sourceRectangle;

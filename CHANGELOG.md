@@ -3,6 +3,9 @@
 This file contains highlights of what changes on each version of the StageXL_Particle
 package. This file is normally updated whenever we push a new version to pub.
 
+#### Pub version 1.1.0
+* Add confetti as type of particle
+
 #### Pub version 1.0.0
 * Upgrade to null safety
 * Update Dart SDK restraint to >= 2.12.0
